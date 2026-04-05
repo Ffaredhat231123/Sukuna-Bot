@@ -1,0 +1,25 @@
+const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, PermissionFlagsBits } = require('discord.js');
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName('setup-verify')
+        .setDescription('Configura el sistema de verificación de Roblox')
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
+    
+    async execute(interaction) {
+        const embed = new EmbedBuilder()
+            .setTitle('🛡️ Verificación de Seguridad')
+            .setDescription('Para acceder al servidor, debes verificar tu cuenta de Roblox.\n\n**Requisitos:**\n✅ Cuentas +1 año 5 meses: Automático.\n⚠️ Cuentas 1 año - 1 año 5 meses: Revisión manual.\n❌ Cuentas < 1 año: Acceso pendiente.')
+            .setColor('#2b2d31');
+
+        const button = new ActionRowBuilder().addComponents(
+            new ButtonBuilder()
+                .setCustomId('start_verify')
+                .setLabel('Verificar Cuenta')
+                .setStyle(ButtonStyle.Primary)
+                .setEmoji('🐋')
+        );
+
+        await interaction.reply({ embeds: [embed], components: [button] });
+    }
+};
