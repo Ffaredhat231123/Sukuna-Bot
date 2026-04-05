@@ -4,8 +4,8 @@ const { evaluateAccountAge } = require('../utils/verificationLogic');
 
 // IDs de Roles (Reemplaza con los tuyos o usa variables de entorno)
 const ROLES = {
-    VERIFIED: 'ID_ROL_VERIFICADO',
-    PENDING: 'ID_ROL_PENDIENTE'
+    VERIFIED: '1490431869760573642',
+    PENDING: '1490431901226237972'
 };
 
 module.exports = {
